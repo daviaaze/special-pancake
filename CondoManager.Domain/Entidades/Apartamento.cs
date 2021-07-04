@@ -1,4 +1,5 @@
 ﻿using CondoManager.Domain.Core;
+using CondoManager.Domain.Dtos;
 using System;
 using System.Collections.Generic;
 
@@ -18,6 +19,12 @@ namespace CondoManager.Domain.Entidades
         {
             Numero = numero;
             Andar = andar;
+        }
+
+        public void Alterar(ApartamentoDto dto)
+        {
+            Numero = dto.Numero;
+            Andar = dto.Andar;
         }
     }
 }

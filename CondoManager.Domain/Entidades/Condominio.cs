@@ -1,4 +1,5 @@
 ﻿using CondoManager.Domain.Core;
+using CondoManager.Domain.Dtos;
 using System.Collections.Generic;
 
 namespace CondoManager.Domain.Entidades
@@ -16,6 +17,13 @@ namespace CondoManager.Domain.Entidades
             Nome = nome;
             Telefone = telefone;
             EmailSindico = emailSindico;
+        }
+
+        public void Alterar(CondominioDto dto)
+        {
+            Nome = dto.Nome;
+            Telefone = dto.Telefone;
+            EmailSindico = dto.EmailSindico;
         }
     }
 }

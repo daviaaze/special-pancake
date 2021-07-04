@@ -1,4 +1,5 @@
 ﻿using CondoManager.Domain.Core;
+using CondoManager.Domain.Dtos;
 using System;
 using System.Collections.Generic;
 
@@ -16,6 +17,11 @@ namespace CondoManager.Domain.Entidades
         public void Alterar(string nome)
         {
             Nome = nome;
+        }
+
+        public void Alterar(BlocoDto dto)
+        {
+            Nome = dto.Nome;
         }
     }
 }
