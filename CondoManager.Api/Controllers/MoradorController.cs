@@ -26,7 +26,7 @@ namespace CondoManager.Api.Controllers
             return CreateResult(await _bus.Send(query));
         }
 
-        [HttpGet]
+        [HttpGet, Route("id")]
         public async Task<IActionResult> GetAsync(Guid id)
         {
             return CreateResult(await _bus.Send(new ObterMoradorQuery(id)));

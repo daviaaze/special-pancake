@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,9 @@ namespace CondoManager.Api
         {
 
             services.AddControllers();
+
+            var assembly = AppDomain.CurrentDomain.Load("CondoManager.Application");
+            services.AddMediatR(assembly);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CondoManager.Api", Version = "v1" });

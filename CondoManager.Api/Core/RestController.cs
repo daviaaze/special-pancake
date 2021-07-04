@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CondoManager.Api.Core
 {
-    public class RestController : ControllerBase
+    public abstract class RestController : ControllerBase
     {
-        public IActionResult CreateResult(IResultado resultado)
+        protected IActionResult CreateResult(IResultado resultado)
         {
             var restResult = new RestResult
             {
@@ -16,7 +16,7 @@ namespace CondoManager.Api.Core
             return StatusCode(GetStatusCode(resultado), restResult);
         }
 
-        public IActionResult CreateResult(IResultado<object> resultado)
+        protected IActionResult CreateResult(IResultado<object> resultado)
         {
             var restResult = new RestResult
             {
@@ -27,7 +27,7 @@ namespace CondoManager.Api.Core
             return StatusCode(GetStatusCode(resultado), restResult);
         }
 
-        public IActionResult CreateResult(IResultadoPaginado resultado)
+        protected IActionResult CreateResult(IResultadoPaginado resultado)
         {
             var restResult = new RestResult
             {
@@ -43,7 +43,7 @@ namespace CondoManager.Api.Core
             return StatusCode(GetStatusCode(resultado), restResult);
         }
 
-        private static int GetStatusCode(IResultado resultado)
+        protected static int GetStatusCode(IResultado resultado)
         {
             return resultado.TipoResultado switch
             {
