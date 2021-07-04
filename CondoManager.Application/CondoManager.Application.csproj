@@ -12,4 +12,8 @@
     <ProjectReference Include="..\CondoManager.CQS\CondoManager.CQS.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Handlers\Queries\" />
+  </ItemGroup>
+
 </Project>

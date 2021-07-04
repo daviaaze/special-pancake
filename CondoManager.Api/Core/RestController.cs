@@ -39,7 +39,6 @@ namespace CondoManager.Api.Core
                 Data = resultado.Dados
             };
 
-
             return StatusCode(GetStatusCode(resultado), restResult);
         }
 

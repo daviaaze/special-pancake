@@ -1,12 +1,13 @@
 ﻿using CondoManager.Domain.Core.Interfaces;
 using CondoManager.Domain.Entidades;
 using CondoManager.Domain.Interfaces.Filtros;
+using System;
 using System.Linq;
 
 namespace CondoManager.Domain.Interfaces.Repositorios
 {
-    public interface IApartamentoRepositorio : IRepository<Apartamento>
+    public interface IApartamentoRepositorio : IRepository<Apartamento>, IDisposable
     {
-        IQueryable<Apartamento> FindByFilter(ApartamentoFiltro filtro);
+        IQueryable<Apartamento> FindByFilter(IApartamentoFiltro filtro);
     }
 }

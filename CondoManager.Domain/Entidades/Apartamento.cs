@@ -7,6 +7,7 @@ namespace CondoManager.Domain.Entidades
 {
     public class Apartamento : Entity
     {
+        protected Apartamento() { }
         public Apartamento(ApartamentoDto dto, Bloco bloco)
         {
             Numero = dto.Numero;

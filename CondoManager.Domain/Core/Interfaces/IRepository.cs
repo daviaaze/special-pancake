@@ -4,9 +4,10 @@ namespace CondoManager.Domain.Core.Interfaces
 {
     public interface IRepository<T> where T : IEntity
     {
-        public T Find(Guid guid);
-        public void Add(T data);
-        public void Update(T data);
-        public void Delete(T data);
+        T Find(Guid guid);
+        void Add(T data);
+        void Update(T data);
+        void Delete(T data);
+        void Save();
     }
 }

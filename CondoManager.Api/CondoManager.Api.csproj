@@ -5,6 +5,7 @@
     <UserSecretsId>91345274-058c-4a00-a1e5-1b5d02c6a970</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,7 @@
     <ProjectReference Include="..\CondoManager.Application\CondoManager.Application.csproj" />
     <ProjectReference Include="..\CondoManager.CQS\CondoManager.CQS.csproj" />
     <ProjectReference Include="..\CondoManager.Domain\CondoManager.Domain.csproj" />
+    <ProjectReference Include="..\CondoManager.Infra.Persistence\CondoManager.Infra.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

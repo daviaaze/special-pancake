@@ -6,6 +6,7 @@ namespace CondoManager.Domain.Entidades
 {
     public class Condominio : Entity
     {
+        protected Condominio() { }
         public Condominio(CondominioDto dto)
         {
             Nome = dto.Nome;
