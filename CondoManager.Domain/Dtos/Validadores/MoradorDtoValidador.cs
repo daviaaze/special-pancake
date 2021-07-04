@@ -8,7 +8,7 @@ namespace CondoManager.Domain.Dtos.Validadores
         public MoradorDtoValidador()
         {
             RuleFor(d => d.Cpf)
-                .NotEmpty().Matches("[0-9]{3}\\.?[0-9]{3}\\.?[0-9]{3}\\-?[0-9]{2}");
+                .NotEmpty().IsValidCPF();
             RuleFor(d => d.DataNascimento)
                 .NotEmpty();
             RuleFor(d => d.DataNascimento)

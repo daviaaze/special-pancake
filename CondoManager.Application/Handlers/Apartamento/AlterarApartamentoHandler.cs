@@ -14,11 +14,11 @@ namespace CondoManager.Application.Handlers.Apartamento
     public class AlterarApartamentoHandler : IRequestHandler<AlterarApartamentoComando, IResultado>
     {
 
-        private readonly IApartamentoRepositorio _ApartamentoRepositorio;
+        private readonly IApartamentoRepositorio _apartamentoRepositorio;
 
         public AlterarApartamentoHandler(IApartamentoRepositorio apartamentoRepositorio)
         {
-            _ApartamentoRepositorio = apartamentoRepositorio;
+            _apartamentoRepositorio = apartamentoRepositorio;
         }
 
         public Task<IResultado> Handle(AlterarApartamentoComando request, CancellationToken cancellationToken)
@@ -28,12 +28,14 @@ namespace CondoManager.Application.Handlers.Apartamento
                 var valido = new ApartamentoDtoValidador().Validate(request);
                 if (!valido.IsValid) return Task.FromResult(valido.ToResultado());
 
-                var Apartamento = _ApartamentoRepositorio.Find(request.IdApartamento);
-                if (Apartamento is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.NaoEncontrado));
+                var apartamento = _apartamentoRepositorio.Find(request.IdApartamento);
+                if (apartamento is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.NaoEncontrado));
 
-                Apartamento.Alterar(request);
+                apartamento.Alterar(request);
 
-                _ApartamentoRepositorio.Update(Apartamento);
+                _apartamentoRepositorio.Update(apartamento);
+
+                _apartamentoRepositorio.Save();
 
                 return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok));
             }

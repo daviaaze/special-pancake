@@ -14,11 +14,11 @@ namespace CondoManager.Application.Handlers.Bloco
     public class AlterarBlocoHandler : IRequestHandler<AlterarBlocoComando, IResultado>
     {
 
-        private readonly IBlocoRepositorio _BlocoRepositorio;
+        private readonly IBlocoRepositorio _blocoRepositorio;
 
         public AlterarBlocoHandler(IBlocoRepositorio blocoRepositorio)
         {
-            _BlocoRepositorio = blocoRepositorio;
+            _blocoRepositorio = blocoRepositorio;
         }
 
         public Task<IResultado> Handle(AlterarBlocoComando request, CancellationToken cancellationToken)
@@ -28,12 +28,14 @@ namespace CondoManager.Application.Handlers.Bloco
                 var valido = new BlocoDtoValidador().Validate(request);
                 if (!valido.IsValid) return Task.FromResult(valido.ToResultado());
 
-                var bloco = _BlocoRepositorio.Find(request.IdBloco);
+                var bloco = _blocoRepositorio.Find(request.IdBloco);
                 if (bloco is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.NaoEncontrado));
 
                 bloco.Alterar(request);
 
-                _BlocoRepositorio.Update(bloco);
+                _blocoRepositorio.Update(bloco);
+
+                _blocoRepositorio.Save();
 
                 return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok));
             }

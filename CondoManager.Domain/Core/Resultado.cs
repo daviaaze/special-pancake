@@ -62,12 +62,38 @@ namespace CondoManager.Domain.Core
     {
         public T Dados { get; set; }
 
-        public static IResultado Criar(EnumTipoResultado tipoResultado, T data)
+        public static IResultado<T> Criar(EnumTipoResultado tipoResultado, T data)
         {
             return new Resultado<T>()
             {
                 TipoResultado = tipoResultado,
                 Dados = data
+            };
+        }
+
+        public new static IResultado<T> Criar(EnumTipoResultado tipoResultado, Exception ex)
+        {
+            return new Resultado<T>()
+            {
+                TipoResultado = tipoResultado,
+                Exception = ex
+            };
+        }
+
+        public new static IResultado<T> Criar(EnumTipoResultado tipoResultado, string mensagem)
+        {
+            return new Resultado<T>()
+            {
+                TipoResultado = tipoResultado,
+                Mensagens = new List<string> { mensagem }
+            };
+        }
+
+        public new static IResultado<T> Criar(EnumTipoResultado tipoResultado)
+        {
+            return new Resultado<T>()
+            {
+                TipoResultado = tipoResultado
             };
         }
     }
@@ -99,6 +125,33 @@ namespace CondoManager.Domain.Core
             var registrosSelecionados = paginatedSource.Select(selectFunction);
             Dados = registrosSelecionados.ToList();
             Contagem = Dados.Count;
+        }
+
+        public new static IResultadoPaginado Criar(EnumTipoResultado tipoResultado)
+        {
+            return new ResultadoPaginado()
+            {
+                TipoResultado = tipoResultado
+            };
+        }
+
+        public new static IResultadoPaginado Criar(EnumTipoResultado tipoResultado, Exception ex)
+        {
+            return new ResultadoPaginado()
+            {
+                TipoResultado = tipoResultado,
+                Exception = ex
+            };
+        }
+
+        public static IResultadoPaginado CriarSucesso<TSource, TResult>(IPaginacao pagination, IQueryable<TSource> source, Func<TSource, TResult> selectFunction)
+        {
+            var retorno = new ResultadoPaginado
+            {
+                TipoResultado = EnumTipoResultado.Ok
+            };
+            retorno.Paginate(pagination, source, selectFunction);
+            return retorno;
         }
     }
 

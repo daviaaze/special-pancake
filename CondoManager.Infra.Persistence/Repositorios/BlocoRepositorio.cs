@@ -58,7 +58,7 @@ namespace CondoManager.Infra.Persistence.Repositorios
             GC.SuppressFinalize(this);
         }
 
-        public IQueryable<Bloco> FindByFilter(IBlocoFiltro filtro)
+        public IQueryable<Bloco> BuscarPorFiltro(IBlocoFiltro filtro)
         {
             IQueryable<Bloco> query = _context.Blocos.Include(d => d.Condominio);
             if (!string.IsNullOrWhiteSpace(filtro.Nome)) query = query.Where(d => d.Nome.Contains(filtro.Nome, StringComparison.InvariantCultureIgnoreCase));

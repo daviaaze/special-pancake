@@ -13,21 +13,23 @@ namespace CondoManager.Application.Handlers.Apartamento
     public class DeletarApartamentoHandler : IRequestHandler<DeletarApartamentoComando, IResultado>
     {
 
-        private readonly IApartamentoRepositorio _ApartamentoRepositorio;
+        private readonly IApartamentoRepositorio _apartamentoRepositorio;
 
         public DeletarApartamentoHandler(IApartamentoRepositorio apartamentoRepositorio)
         {
-            _ApartamentoRepositorio = apartamentoRepositorio;
+            _apartamentoRepositorio = apartamentoRepositorio;
         }
 
         public Task<IResultado> Handle(DeletarApartamentoComando request, CancellationToken cancellationToken)
         {
             try
             {
-                var Apartamento = _ApartamentoRepositorio.Find(request.IdApartamento);
-                if (Apartamento is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.NaoEncontrado));
+                var apartamento = _apartamentoRepositorio.Find(request.IdApartamento);
+                if (apartamento is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.NaoEncontrado));
 
-                _ApartamentoRepositorio.Delete(Apartamento);
+                _apartamentoRepositorio.Delete(apartamento);
+
+                _apartamentoRepositorio.Save();
 
                 return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok));
             }

@@ -8,6 +8,6 @@ namespace CondoManager.Domain.Interfaces.Repositorios
 {
     public interface IMoradorRepositorio : IRepository<Morador>, IDisposable
     {
-        IQueryable<Morador> FindByFilter(IMoradorFiltro filtro);
+        IQueryable<Morador> BuscarPorFiltro(IMoradorFiltro filtro);
     }
 }

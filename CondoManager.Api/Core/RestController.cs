@@ -1,32 +1,12 @@
 ﻿using CondoManager.Domain.Core.Enums;
 using CondoManager.Domain.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace CondoManager.Api.Core
 {
     public abstract class RestController : ControllerBase
     {
-        protected IActionResult CreateResult(IResultado resultado)
-        {
-            var restResult = new RestResult
-            {
-                Messages = resultado.Mensagens
-            };
-
-            return StatusCode(GetStatusCode(resultado), restResult);
-        }
-
-        protected IActionResult CreateResult(IResultado<object> resultado)
-        {
-            var restResult = new RestResult
-            {
-                Messages = resultado.Mensagens,
-                Data = resultado.Dados
-            };
-
-            return StatusCode(GetStatusCode(resultado), restResult);
-        }
-
         protected IActionResult CreateResult(IResultadoPaginado resultado)
         {
             var restResult = new RestResult
@@ -37,6 +17,29 @@ namespace CondoManager.Api.Core
                 Page = resultado.Pagina,
                 Pages = resultado.Paginas,
                 Data = resultado.Dados
+            };
+
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development") restResult.Exception = resultado.Exception;
+
+            return StatusCode(GetStatusCode(resultado), restResult);
+        }
+
+        protected IActionResult CreateResult<T>(IResultado<T> resultado)
+        {
+            var restResult = new RestResult
+            {
+                Messages = resultado.Mensagens,
+                Data = resultado.Dados
+            };
+
+            return StatusCode(GetStatusCode(resultado), restResult);
+        }
+
+        protected IActionResult CreateResult(IResultado resultado)
+        {
+            var restResult = new RestResult
+            {
+                Messages = resultado.Mensagens
             };
 
             return StatusCode(GetStatusCode(resultado), restResult);

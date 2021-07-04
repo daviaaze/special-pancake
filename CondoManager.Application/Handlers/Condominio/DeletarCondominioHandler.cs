@@ -29,6 +29,8 @@ namespace CondoManager.Application.Handlers.Condominio
 
                 _condominioRepositorio.Delete(condominio);
 
+                _condominioRepositorio.Save();
+
                 return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok));
             }
             catch (Exception ex)

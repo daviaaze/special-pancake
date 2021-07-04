@@ -30,6 +30,8 @@ namespace CondoManager.Application.Handlers.Morador
 
                 _moradorRepositorio.Delete(morador);
 
+                _moradorRepositorio.Save();
+
                 return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok));
             }
             catch (Exception ex)

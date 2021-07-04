@@ -59,7 +59,7 @@ namespace CondoManager.Infra.Persistence.Repositorios
             GC.SuppressFinalize(this);
         }
 
-        public IQueryable<Condominio> FindByFilter(ICondominioFiltro filtro)
+        public IQueryable<Condominio> BuscarPorFiltro(ICondominioFiltro filtro)
         {
             IQueryable<Condominio> query = _context.Condominios;
 

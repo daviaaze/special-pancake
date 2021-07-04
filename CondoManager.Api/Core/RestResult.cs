@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace CondoManager.Api.Core
@@ -8,6 +9,7 @@ namespace CondoManager.Api.Core
     {
         public List<string> Messages { get; set; }
         public object Data { get; set; }
+        public Exception Exception { get; set; }
 
 
         public int? TotalCount { get; set; }

@@ -29,6 +29,8 @@ namespace CondoManager.Application.Handlers.Bloco
 
                 _blocoRepositorio.Delete(bloco);
 
+                _blocoRepositorio.Save();
+
                 return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok));
             }
             catch (Exception ex)

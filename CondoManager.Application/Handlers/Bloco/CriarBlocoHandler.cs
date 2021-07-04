@@ -14,12 +14,12 @@ namespace CondoManager.Application.Handlers.Bloco
     public class CriarBlocoHandler : IRequestHandler<CriarBlocoComando, IResultado>
     {
 
-        private readonly IBlocoRepositorio _BlocoRepositorio;
+        private readonly IBlocoRepositorio _blocoRepositorio;
         private readonly ICondominioRepositorio _CondominioRepositorio;
 
         public CriarBlocoHandler(IBlocoRepositorio blocoRepositorio, ICondominioRepositorio condominioRepositorio)
         {
-            _BlocoRepositorio = blocoRepositorio;
+            _blocoRepositorio = blocoRepositorio;
             _CondominioRepositorio = condominioRepositorio;
         }
 
@@ -35,7 +35,9 @@ namespace CondoManager.Application.Handlers.Bloco
 
                 var bloco = new Domain.Entidades.Bloco(request, condominio);
 
-                _BlocoRepositorio.Add(bloco);
+                _blocoRepositorio.Add(bloco);
+
+                _blocoRepositorio.Save();
 
                 return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok));
             }

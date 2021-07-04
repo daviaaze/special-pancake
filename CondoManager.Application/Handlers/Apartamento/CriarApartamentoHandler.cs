@@ -31,11 +31,13 @@ namespace CondoManager.Application.Handlers.Apartamento
                 if (!valido.IsValid) return Task.FromResult(valido.ToResultado());
 
                 var bloco = _blocoRepositorio.Find(request.IdBloco);
-                if(bloco is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok).AdicionarMensagem("Bloco não encontrado"));
+                if(bloco is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.NaoEncontrado).AdicionarMensagem("Bloco não encontrado"));
 
                 var apartamento = new Domain.Entidades.Apartamento(request, bloco);
 
                 _apartamentoRepositorio.Add(apartamento);
+
+                _apartamentoRepositorio.Save();
 
                 return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok));
             }

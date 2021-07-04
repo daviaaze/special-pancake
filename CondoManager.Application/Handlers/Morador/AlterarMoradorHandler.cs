@@ -35,6 +35,8 @@ namespace CondoManager.Application.Handlers.Morador
 
                 _moradorRepositorio.Update(morador);
 
+                _moradorRepositorio.Save();
+
                 return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok));
             }
             catch (Exception ex)
