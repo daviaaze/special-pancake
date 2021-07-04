@@ -1,8 +1,11 @@
 ﻿using CondoManager.Api.Core;
+using CondoManager.CQS.Commands.Apartamento;
+using CondoManager.CQS.Queries;
 using CondoManager.Domain.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace CondoManager.Api.Controllers
 {
@@ -18,33 +21,33 @@ namespace CondoManager.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get([FromQuery] ObterApartamentoPorFiltroQuery query)
+        public async Task<IActionResult> GetAsync([FromQuery] ObterApartamentoPorFiltroQuery query)
         {
-            return CreateResult(_bus.Send(query));
+            return CreateResult(await _bus.Send(query));
         }
 
         [HttpGet]
-        public IActionResult Get(Guid id)
+        public async Task<IActionResult> GetAsync(Guid id)
         {
-            return CreateResult(_bus.Send(new ObterApartamentoQuery(id)));
+            return CreateResult(await _bus.Send(new ObterApartamentoQuery(id)));
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] CriarApartamentoComando command)
+        public async Task<IActionResult> PostAsync([FromBody] CriarApartamentoComando command)
         {
-            return CreateResult(_bus.Send(command));
+            return CreateResult(await _bus.Send(command));
         }
 
         [HttpPut]
-        public IActionResult Put(Guid id, [FromBody] ApartamentoDto input)
+        public async Task<IActionResult> PutAsync(Guid id, [FromBody] ApartamentoDto input)
         {
-            return CreateResult(_bus.Send(new AtualizarApartamentoCommand(id, input)));
+            return CreateResult(await _bus.Send(new AlterarApartamentoComando(id, input)));
         }
 
         [HttpDelete]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> DeleteAsync(Guid id)
         {
-            return CreateResult(_bus.Send(new DeletarApartamentoCommand(id)));
+            return CreateResult(await _bus.Send(new DeletarApartamentoComando(id)));
         }
     }
 }

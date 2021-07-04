@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CondoManager.CQS\CondoManager.CQS.csproj" />
     <ProjectReference Include="..\CondoManager.Domain\CondoManager.Domain.csproj" />
   </ItemGroup>
 

@@ -1,8 +1,11 @@
 ﻿using CondoManager.Api.Core;
+using CondoManager.CQS.Commands.Morador;
+using CondoManager.CQS.Queries;
 using CondoManager.Domain.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace CondoManager.Api.Controllers
 {
@@ -18,33 +21,33 @@ namespace CondoManager.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get([FromQuery] ObterMoradorPorFiltroQuery query)
+        public async Task<IActionResult> GetAsync([FromQuery] ObterMoradorPorFiltroQuery query)
         {
-            return CreateResult(_bus.Send(query));
+            return CreateResult(await _bus.Send(query));
         }
 
         [HttpGet]
-        public IActionResult Get(Guid id)
+        public async Task<IActionResult> GetAsync(Guid id)
         {
-            return CreateResult(_bus.Send(new ObterMoradorQuery(id)));
+            return CreateResult(await _bus.Send(new ObterMoradorQuery(id)));
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] CriarMoradorComando command)
+        public async Task<IActionResult> PostAsync([FromBody] CriarMoradorComando command)
         {
-            return CreateResult(_bus.Send(command));
+            return CreateResult(await _bus.Send(command));
         }
 
         [HttpPut]
-        public IActionResult Put(Guid id, [FromBody] MoradorDto input)
+        public async Task<IActionResult> PutAsync(Guid id, [FromBody] MoradorDto input)
         {
-            return CreateResult(_bus.Send(new AtualizarMoradorCommand(id, input)));
+            return CreateResult(await _bus.Send(new AlterarMoradorComando(id, input)));
         }
 
         [HttpDelete]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> DeleteAsync(Guid id)
         {
-            return CreateResult(_bus.Send(new DeletarMoradorCommand(id)));
+            return CreateResult(await _bus.Send(new DeletarMoradorComando(id)));
         }
     }
 }

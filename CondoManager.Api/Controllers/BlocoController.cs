@@ -1,7 +1,11 @@
 ﻿using CondoManager.Api.Core;
+using CondoManager.CQS.Commands.Bloco;
+using CondoManager.CQS.Queries;
+using CondoManager.Domain.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace CondoManager.Api.Controllers
 {
@@ -17,33 +21,33 @@ namespace CondoManager.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get([FromQuery] ObterBlocoPorFiltroQuery query)
+        public async Task<IActionResult> GetAsync([FromQuery] ObterBlocoPorFiltroQuery query)
         {
-            return CreateResult(_bus.Send(query));
+            return CreateResult(await _bus.Send(query));
         }
 
         [HttpGet]
-        public IActionResult Get(Guid id)
+        public async Task<IActionResult> GetAsync(Guid id)
         {
-            return CreateResult(_bus.Send(new ObterBlocoQuery(id)));
+            return CreateResult(await _bus.Send(new ObterBlocoQuery(id)));
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] CriarBlocoComando command)
+        public async Task<IActionResult> PostAsync([FromBody] CriarBlocoComando command)
         {
-            return CreateResult(_bus.Send(command));
+            return CreateResult(await _bus.Send(command));
         }
 
         [HttpPut]
-        public IActionResult Put(Guid id, [FromBody] BlocoDto input)
+        public async Task<IActionResult> PutAsync(Guid id, [FromBody] BlocoDto input)
         {
-            return CreateResult(_bus.Send(new AtualizarBlocoCommand(id, input)));
+            return CreateResult(await _bus.Send(new AlterarBlocoComando(id, input)));
         }
 
         [HttpDelete]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> DeleteAsync(Guid id)
         {
-            return CreateResult(_bus.Send(new DeletarBlocoCommand(id)));
+            return CreateResult(await _bus.Send(new DeletarBlocoComando(id)));
         }
     }
 }
