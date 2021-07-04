@@ -14,7 +14,8 @@ namespace CondoManager.Infra.Persistence.Config
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING"));
+            optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING"))
+                          .UseLowerCaseNamingConvention();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
