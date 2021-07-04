@@ -23,11 +23,12 @@ namespace CondoManager.Application.Handlers.Morador
         {
             try
             {
-            var query = _moradorRepositorio.BuscarPorFiltro(request);
+                var query = _moradorRepositorio.BuscarPorFiltro(request);
 
-            return Task.FromResult(ResultadoPaginado.CriarSucesso(request, query, d => (MoradorViewModel)d));
+                return Task.FromResult(ResultadoPaginado.CriarSucesso(request, query, d => (MoradorViewModel)d));
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return Task.FromResult(ResultadoPaginado.Criar(Domain.Core.Enums.EnumTipoResultado.ErroInterno, ex));
             }

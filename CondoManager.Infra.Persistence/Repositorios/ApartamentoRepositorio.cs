@@ -3,7 +3,6 @@ using CondoManager.Domain.Interfaces.Filtros;
 using CondoManager.Domain.Interfaces.Repositorios;
 using CondoManager.Infra.Persistence.Config;
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
 using System;
 using System.Linq;
 

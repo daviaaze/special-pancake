@@ -18,25 +18,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{42594E
 		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondoManager.Application", "CondoManager.Application\CondoManager.Application.csproj", "{E0DCE8C8-3765-48F1-B3AA-46034BAE1773}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CondoManager.Application", "CondoManager.Application\CondoManager.Application.csproj", "{E0DCE8C8-3765-48F1-B3AA-46034BAE1773}"
 	ProjectSection(ProjectDependencies) = postProject
 		{BDB5D917-75C2-46DA-8F34-4E1F093EC105} = {BDB5D917-75C2-46DA-8F34-4E1F093EC105}
 		{3F8C538C-C1D2-4153-B160-C4C202999627} = {3F8C538C-C1D2-4153-B160-C4C202999627}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondoManager.CQS", "CondoManager.CQS\CondoManager.CQS.csproj", "{BDB5D917-75C2-46DA-8F34-4E1F093EC105}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CondoManager.CQS", "CondoManager.CQS\CondoManager.CQS.csproj", "{BDB5D917-75C2-46DA-8F34-4E1F093EC105}"
 	ProjectSection(ProjectDependencies) = postProject
 		{3F8C538C-C1D2-4153-B160-C4C202999627} = {3F8C538C-C1D2-4153-B160-C4C202999627}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondoManager.Domain", "CondoManager.Domain\CondoManager.Domain.csproj", "{3F8C538C-C1D2-4153-B160-C4C202999627}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CondoManager.Domain", "CondoManager.Domain\CondoManager.Domain.csproj", "{3F8C538C-C1D2-4153-B160-C4C202999627}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondoManager.Infra.Persistence", "CondoManager.Infra.Persistence\CondoManager.Infra.Persistence.csproj", "{437AA581-67B8-4B06-A633-0FF956DAB2DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CondoManager.Infra.Persistence", "CondoManager.Infra.Persistence\CondoManager.Infra.Persistence.csproj", "{437AA581-67B8-4B06-A633-0FF956DAB2DA}"
 	ProjectSection(ProjectDependencies) = postProject
 		{3F8C538C-C1D2-4153-B160-C4C202999627} = {3F8C538C-C1D2-4153-B160-C4C202999627}
 	EndProjectSection
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C1AA4B64-EFE0-4C56-8410-7428045FF505}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CondoManager.Test", "CondoManager.Test\CondoManager.Test.csproj", "{D306FC7C-F355-4F8D-9CD1-E6E4848E2238}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +70,10 @@ Global
 		{C1AA4B64-EFE0-4C56-8410-7428045FF505}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1AA4B64-EFE0-4C56-8410-7428045FF505}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1AA4B64-EFE0-4C56-8410-7428045FF505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D306FC7C-F355-4F8D-9CD1-E6E4848E2238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D306FC7C-F355-4F8D-9CD1-E6E4848E2238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D306FC7C-F355-4F8D-9CD1-E6E4848E2238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D306FC7C-F355-4F8D-9CD1-E6E4848E2238}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,6 +10,8 @@ namespace CondoManager.Domain.Dtos.Validadores
                 .NotEmpty();
             RuleFor(d => d.Telefone)
                 .NotEmpty().Length(10, 11);
+            RuleFor(d => d.EmailSindico)
+                .NotEmpty().EmailAddress();
         }
     }
 }

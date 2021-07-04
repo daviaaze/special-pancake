@@ -7,6 +7,7 @@ namespace CondoManager.CQS.Commands.Apartamento
 {
     public class AlterarApartamentoComando : ApartamentoDto, IRequest<IResultado>
     {
+        public AlterarApartamentoComando() { }
         public AlterarApartamentoComando(Guid id, ApartamentoDto input)
         {
             IdApartamento = id;

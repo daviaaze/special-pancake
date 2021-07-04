@@ -23,11 +23,12 @@ namespace CondoManager.Application.Handlers.Bloco
         {
             try
             {
-            var query = _blocoRepositorio.BuscarPorFiltro(request);
+                var query = _blocoRepositorio.BuscarPorFiltro(request);
 
-            return Task.FromResult(ResultadoPaginado.CriarSucesso(request, query, d => (BlocoViewModel)d));
+                return Task.FromResult(ResultadoPaginado.CriarSucesso(request, query, d => (BlocoViewModel)d));
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return Task.FromResult(ResultadoPaginado.Criar(Domain.Core.Enums.EnumTipoResultado.ErroInterno, ex));
             }

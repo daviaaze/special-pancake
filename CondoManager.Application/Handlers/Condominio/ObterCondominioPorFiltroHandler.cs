@@ -23,11 +23,12 @@ namespace CondoManager.Application.Handlers.Condominio
         {
             try
             {
-            var query = _condominioRepositorio.BuscarPorFiltro(request);
+                var query = _condominioRepositorio.BuscarPorFiltro(request);
 
-            return Task.FromResult(ResultadoPaginado.CriarSucesso(request, query, d => (CondominioViewModel)d));
+                return Task.FromResult(ResultadoPaginado.CriarSucesso(request, query, d => (CondominioViewModel)d));
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return Task.FromResult(ResultadoPaginado.Criar(Domain.Core.Enums.EnumTipoResultado.ErroInterno, ex));
             }

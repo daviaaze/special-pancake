@@ -23,11 +23,12 @@ namespace CondoManager.Application.Handlers.Apartamento
         {
             try
             {
-            var query = _apartamentoRepositorio.BuscarPorFiltro(request);
+                var query = _apartamentoRepositorio.BuscarPorFiltro(request);
 
-            return Task.FromResult(ResultadoPaginado.CriarSucesso(request, query, d => (ApartamentoViewModel)d));
+                return Task.FromResult(ResultadoPaginado.CriarSucesso(request, query, d => (ApartamentoViewModel)d));
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return Task.FromResult(ResultadoPaginado.Criar(Domain.Core.Enums.EnumTipoResultado.ErroInterno, ex));
             }

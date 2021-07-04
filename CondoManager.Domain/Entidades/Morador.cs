@@ -6,7 +6,7 @@ namespace CondoManager.Domain.Entidades
 {
     public class Morador : Entity
     {
-        protected Morador() { }
+        public Morador() { }
 
         public Morador(MoradorDto dto, Apartamento apartamento)
         {

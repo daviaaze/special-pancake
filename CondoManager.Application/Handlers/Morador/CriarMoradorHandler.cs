@@ -31,7 +31,7 @@ namespace CondoManager.Application.Handlers.Morador
                 if (!valido.IsValid) return Task.FromResult(valido.ToResultado());
 
                 var apartamento = _apartamentoRepositorio.Find(request.IdApartamento);
-                if(apartamento is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok).AdicionarMensagem("apartamento não encontrado"));
+                if (apartamento is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.NaoEncontrado).AdicionarMensagem("apartamento não encontrado"));
 
                 var morador = new Domain.Entidades.Morador(request, apartamento);
 

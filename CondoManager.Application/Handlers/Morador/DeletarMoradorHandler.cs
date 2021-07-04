@@ -2,7 +2,6 @@
 using CondoManager.Domain.Core;
 using CondoManager.Domain.Core.Enums;
 using CondoManager.Domain.Core.Interfaces;
-using CondoManager.Domain.Dtos.Validadores;
 using CondoManager.Domain.Interfaces.Repositorios;
 using MediatR;
 using System;

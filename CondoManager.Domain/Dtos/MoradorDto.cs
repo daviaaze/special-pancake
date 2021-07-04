@@ -2,7 +2,7 @@
 
 namespace CondoManager.Domain.Dtos
 {
-    public class MoradorDto 
+    public class MoradorDto
     {
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }

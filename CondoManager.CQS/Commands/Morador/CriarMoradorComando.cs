@@ -5,7 +5,7 @@ using System;
 
 namespace CondoManager.CQS.Commands.Morador
 {
-    public class CriarMoradorComando : MoradorDto, IRequest<IResultado> 
+    public class CriarMoradorComando : MoradorDto, IRequest<IResultado>
     {
         public Guid IdApartamento { get; set; }
     }

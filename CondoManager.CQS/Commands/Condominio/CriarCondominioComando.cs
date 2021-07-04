@@ -4,7 +4,7 @@ using MediatR;
 
 namespace CondoManager.CQS.Commands.Condominio
 {
-    public class CriarCondominioComando : CondominioDto, IRequest<IResultado> 
+    public class CriarCondominioComando : CondominioDto, IRequest<IResultado>
     {
     }
 }

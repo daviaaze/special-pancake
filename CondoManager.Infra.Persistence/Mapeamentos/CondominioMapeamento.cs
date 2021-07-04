@@ -1,7 +1,6 @@
 ﻿using CondoManager.Domain.Entidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
 namespace CondoManager.Infra.Persistence.Mapeamentos
 {

@@ -5,7 +5,7 @@ using System;
 
 namespace CondoManager.CQS.Commands.Apartamento
 {
-    public class CriarApartamentoComando : ApartamentoDto, IRequest<IResultado> 
+    public class CriarApartamentoComando : ApartamentoDto, IRequest<IResultado>
     {
         public Guid IdBloco { get; set; }
     }

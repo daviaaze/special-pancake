@@ -31,7 +31,7 @@ namespace CondoManager.Application.Handlers.Bloco
                 if (!valido.IsValid) return Task.FromResult(valido.ToResultado());
 
                 var condominio = _CondominioRepositorio.Find(request.IdCondominio);
-                if(condominio is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.Ok).AdicionarMensagem("Condominio não encontrado"));
+                if (condominio is null) return Task.FromResult(Resultado.Criar(EnumTipoResultado.NaoEncontrado).AdicionarMensagem("Condominio não encontrado"));
 
                 var bloco = new Domain.Entidades.Bloco(request, condominio);
 

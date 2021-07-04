@@ -30,7 +30,7 @@ namespace CondoManager.Infra.Persistence.Repositorios
 
         public Morador Find(Guid guid)
         {
-           return _context.Moradores.Find(guid);
+            return _context.Moradores.Find(guid);
         }
 
         public void Update(Morador data)

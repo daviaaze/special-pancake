@@ -30,7 +30,7 @@ namespace CondoManager.Infra.Persistence.Repositorios
 
         public Bloco Find(Guid guid)
         {
-           return _context.Blocos.Find(guid);
+            return _context.Blocos.Find(guid);
         }
 
         public void Update(Bloco data)

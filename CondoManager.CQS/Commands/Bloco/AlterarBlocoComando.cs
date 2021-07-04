@@ -7,6 +7,7 @@ namespace CondoManager.CQS.Commands.Bloco
 {
     public class AlterarBlocoComando : BlocoDto, IRequest<IResultado>
     {
+        public AlterarBlocoComando() { }
         public AlterarBlocoComando(Guid id, BlocoDto input)
         {
             IdBloco = id;
