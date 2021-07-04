@@ -9,7 +9,7 @@ namespace CondoManager.Domain.Core.Interfaces
     public interface IResultado
     {
         EnumTipoResultado TipoResultado { get; set; }
-        List<string> Mensagens { get; }
+        List<string> Mensagens { get; set; }
         bool Sucesso
         {
             get
@@ -21,21 +21,25 @@ namespace CondoManager.Domain.Core.Interfaces
                 };
             }
         }
+
+        Exception Exception { get; set; }
+
+        IResultado AdicionarMensagem(string mensagem);
+        IResultado AdicionarMensagens(List<string> mensagens);
     }
 
     public interface IResultado<T> : IResultado
     {
-        T Data { get; set; }
+        T Dados { get; set; }
     }
 
     public interface IResultadoPaginado : IResultado<IList>
     {
-        int? TotalCount { get; set; }
-        int? Pages { get; set; }
-        int Count { get; set; }
-        int Page { get; set; }
+        int? ContagemTotal { get; set; }
+        int? Paginas { get; set; }
+        int Contagem { get; set; }
+        int Pagina { get; set; }
 
         void Paginate<TSource, TResult>(IPaginacao pagination, IQueryable<TSource> source, Func<TSource, TResult> selectFunction);
-        IResultadoPaginado AddMessage(string message);
     }
 }

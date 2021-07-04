@@ -6,6 +6,13 @@ namespace CondoManager.Domain.Entidades
 {
     public class Condominio : Entity
     {
+        public Condominio(CondominioDto dto)
+        {
+            Nome = dto.Nome;
+            Telefone = dto.Telefone;
+            EmailSindico = dto.EmailSindico;
+        }
+
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string EmailSindico { get; set; }

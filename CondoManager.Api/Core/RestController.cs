@@ -21,7 +21,7 @@ namespace CondoManager.Api.Core
             var restResult = new RestResult
             {
                 Messages = resultado.Mensagens,
-                Data = resultado.Data
+                Data = resultado.Dados
             };
 
             return StatusCode(GetStatusCode(resultado), restResult);
@@ -32,11 +32,11 @@ namespace CondoManager.Api.Core
             var restResult = new RestResult
             {
                 Messages = resultado.Mensagens,
-                TotalCount = resultado.TotalCount,
-                Count = resultado.Count,
-                Page = resultado.Page,
-                Pages = resultado.Pages,
-                Data = resultado.Data
+                TotalCount = resultado.ContagemTotal,
+                Count = resultado.Contagem,
+                Page = resultado.Pagina,
+                Pages = resultado.Paginas,
+                Data = resultado.Dados
             };
 
 

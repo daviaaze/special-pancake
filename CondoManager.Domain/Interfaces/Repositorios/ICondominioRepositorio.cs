@@ -5,8 +5,8 @@ using System.Linq;
 
 namespace CondoManager.Domain.Interfaces.Repositorios
 {
-    public interface ICondominioRepositorio : IRepository<Morador>
+    public interface ICondominioRepositorio : IRepository<Condominio>
     {
-        IQueryable<Morador> FindByFilter(CondominioFiltro filtro);
+        IQueryable<Condominio> FindByFilter(CondominioFiltro filtro);
     }
 }
